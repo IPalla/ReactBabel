@@ -4,6 +4,8 @@ import { ConnectedRouter } from 'react-router-redux'
 
 import App from '../../layouts/App'
 import Home from '../../views/Home'
+import TVShow from '../../views/TVShow'
+import TVShows from '../../views/TVShows'
 import Movies from '../../views/Movies'
 import Movie from '../../views/Movie'
 import NotFound from '../../views/NotFound'
@@ -13,8 +15,10 @@ const Router = ({history}) => (
         <App>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/movies/:id" component={Movie} />
+                <Route path="/movies/:id" component={TVShow} />
                 <Route path="/movies" component={Movies} />
+                <Route path="/tv-shows/:id" component={TVShow} />
+                <Route path="/tv-shows" component={TVShows} />
                 <Route component={NotFound} />
             </Switch>
         </App>

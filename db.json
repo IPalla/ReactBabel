@@ -1,5 +1,85 @@
 {
-    "comments": [ 
-        { "id": 1, "body": "some comment", "movieId": 1 }
-    ]
+  "film_comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "movieId": 1,
+      "user": "usuario_que_escribio"
+    },
+    {
+      "id": 2,
+      "body": "some comment2",
+      "movieId": 1,
+      "user": "usuario_que_escribio"
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "user": "nuevaop",
+      "body": "eeee",
+      "movieId": "1222",
+      "id": 15
+    },
+    {
+      "body": "hol",
+      "id": 16
+    },
+    {
+      "body": "Ess",
+      "id": 17
+    },
+    {
+      "body": "aaaaaaaaaaaa",
+      "id": 18
+    },
+    {
+      "body": "asdf",
+      "id": 19
+    },
+    {
+      "user": "asdfasdf",
+      "movieId": 447332,
+      "body": "Nuevo edita",
+      "id": 21
+    },
+    {
+      "user": "anónimo",
+      "body": "Muy buena peli!",
+      "movieId": 299536,
+      "id": 22
+    }
+  ],
+  "tvshows_comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "tvshowId": 1,
+      "user": "usuario_que_escribio"
+    },
+    {
+      "user": "Muy buena",
+      "body": "Muy buena serie",
+      "movieId": 1418,
+      "id": 2
+    }
+  ]
 }

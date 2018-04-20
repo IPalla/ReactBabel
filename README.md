@@ -21,7 +21,6 @@ TO DO:
 8. Añadir una opción para editar/update Movies & TV shows
 - Guardar en json-server
 - A la hora de carga se tienen que tener ambas fuentes (API & json-server)
-
 -----
 
 

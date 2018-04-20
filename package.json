@@ -21,12 +21,13 @@
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "watch-db": "json-server --watch db.json",
+    "watch-db": "json-server --port 3010 --watch db.json",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js watch-db",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "webss": "npm-run-all -p watch-css start-js"
   }
 }

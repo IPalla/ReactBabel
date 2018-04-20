@@ -10,12 +10,12 @@ import * as moviesActions from '../../actions/moviesActions'
 
 class Movies extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         let isDefault, path, nowViewing;
-        // (this.props.path) ? path = this.props.path :  this.props.match.path.slice(1, this.props.match.path.length);
-        path = 'movies';
+        path = 'tv-shows';
         ( this.props.isDefault === undefined) ? isDefault = true : isDefault = this.props.isDefault;
         ( this.props.nowViewing === undefined) ? nowViewing = 'popular' : nowViewing = this.props.nowViewing;
+        
         this.state = {
             movies: [],
             page: 1,
@@ -31,13 +31,11 @@ class Movies extends React.Component {
 
     
     componentDidMount(){
-        const { movies, nowViewing, page, endpoint } = this.state
+        const { movies, nowViewing, page } = this.state
         const { moviesActions } = this.props
-        if (endpoint){
-            this.loadAction(page, nowViewing);
-        } else {
-            this.loadAction(page, nowViewing);
-        }
+
+        this.loadAction(page, nowViewing)
+
         window.addEventListener("scroll", this.infiniteScroller, false);
     }
 
@@ -56,7 +54,6 @@ class Movies extends React.Component {
     loadAction = (page, nowViewing) => {
         const { moviesActions } = this.props
         const { path, defaultId } = this.state;
-        console.log(defaultId);
         if (path === 'movies'){
             moviesActions.loadMovies(page, nowViewing, defaultId)
         } else if (path === 'tv-shows'){
@@ -138,19 +135,19 @@ class Movies extends React.Component {
             <section className="container main movies">
                 <header className="row">
                     <div className="col-12">
-                        {isDefault && <h1>{movies.length > 0 ? path : 'Loading...'}</h1>}
-                        {!isDefault && <h1>{movies.length > 0 ? nowViewing : 'Loading...'}</h1>}
+                    {isDefault && <h1>{movies.length > 0 ? path : 'Loading...'}</h1>}
+                    {!isDefault && <h1>{movies.length > 0 ? nowViewing : 'Loading...'}</h1>}
                     </div>
                 </header>
                 <aside className="row">
-                    {isDefault && <div className="form-group" >
+                    <div className="form-group">
                         <label>Now viewing:</label>
-                        <select className="form-control" onChange={this.onViewingChange} defaultValue={nowViewing}>
+                        { isDefault && <select className="form-control" onChange={this.onViewingChange} defaultValue={nowViewing}>
                             <option value="popular">Popular</option>
                             <option value="topRated">Top Rated</option>
                             <option value= {(path==='movies') ? 'upcoming' : 'airing' }>{(path==='movies') ? 'Upcoming' : 'Airing today'}</option>
-                        </select>
-                    </div> }
+                        </select> }
+                    </div>
                     <div className="form-group">
                         <label>Sort by:</label>
                         <select className="form-control" onChange={this.onSortChange} defaultValue={sortBy}>

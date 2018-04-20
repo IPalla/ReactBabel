@@ -7,16 +7,20 @@ import * as movieActions from '../../actions/movieActions'
 class Movie extends React.Component {
     constructor(props) {
         super(props) 
-
         this.state = {
-            movie: {}
+            movie: {},
+            random: this.props.random
         }
     }
 
     componentDidMount(){
-        const { movieActions, match } = this.props
+        const { movieActions, match, random } = this.props
+        if (random){
+            movieActions.loadMovie(random)
 
-        movieActions.loadMovie(match.params.id)
+        } else {
+            movieActions.loadMovie(match.params.id)
+        }
     }
 
     componentWillReceiveProps({movie}) {
