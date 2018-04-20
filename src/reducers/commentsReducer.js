@@ -7,17 +7,14 @@ export default function commentsReducer(state = initialState.comments, action){
             return action.comments
         case types.CREATE_COMMENT_SUCCESS:
             return [...state, action.comment]
-            
         case types.DELETE_COMMENT_SUCCESS:
             return state.filter(comment => {
-                return comment.id != action.id
+                return comment.id !== action.id
             });
-            break;
         case types.UPDATE_COMMENT_SUCCESS:
             return [ ...state.filter(comment => {
-                return comment.id != action.comment.id
+                return comment.id !== action.comment.id
             }), action.comment];
-            break;
         default:
             return state
   }

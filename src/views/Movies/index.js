@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
@@ -31,8 +30,7 @@ class Movies extends React.Component {
 
     
     componentDidMount(){
-        const { movies, nowViewing, page, endpoint } = this.state
-        const { moviesActions } = this.props
+        const { nowViewing, page, endpoint } = this.state
         if (endpoint){
             this.loadAction(page, nowViewing);
         } else {
@@ -56,7 +54,6 @@ class Movies extends React.Component {
     loadAction = (page, nowViewing) => {
         const { moviesActions } = this.props
         const { path, defaultId } = this.state;
-        console.log(defaultId);
         if (path === 'movies'){
             moviesActions.loadMovies(page, nowViewing, defaultId)
         } else if (path === 'tv-shows'){
@@ -87,7 +84,6 @@ class Movies extends React.Component {
 
     onViewingChange = e => {
         const nowViewing = e.target.value
-        const { moviesActions } = this.props
         this.loadAction(1, nowViewing)
         this.setState({
             page: 2,

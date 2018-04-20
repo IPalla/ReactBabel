@@ -9,14 +9,10 @@ import * as moviesActions from '../../actions/moviesActions'
 class Header extends React.Component {
     constructor(props){
         super(props)
-        let path = window.location.pathname.split('/')[1];
-        if (!path){
-            path='movies';
-        }
+        
         this.state = {
             numberOfMovies: props.numberOfMovies,
-            searchString: '',
-            path: path,
+            searchString: ''
         }
     }
 
@@ -28,7 +24,10 @@ class Header extends React.Component {
     search = (e) => {
         const searchString = e.target.value;
         const { moviesActions } = this.props;
-        const { path } = this.state;
+        let path = window.location.pathname.split('/')[1];
+        if (!path){
+            path='movies';
+        }
         this.setState({searchString: searchString});
         if (searchString !== ''){
             moviesActions.search(searchString);
@@ -41,7 +40,7 @@ class Header extends React.Component {
         }
     }
     render() {
-        const { numberOfMovies, searchString } = this.state
+        const { searchString } = this.state
         return (
             <div className="row">
             <header className="main-nav d-flex col-12" style={{flexDirection: 'column'}}>

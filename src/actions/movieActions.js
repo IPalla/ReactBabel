@@ -1,5 +1,4 @@
 import * as types from '../types/movie'
-import { moviesURL } from '../utils'
 
 export function loadMovieSuccess(movie){
     return { type: types.LOAD_MOVIE_SUCCESS, movie }

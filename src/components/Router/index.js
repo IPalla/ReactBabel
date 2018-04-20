@@ -7,7 +7,6 @@ import Home from '../../views/Home'
 import TVShow from '../../views/TVShow'
 import TVShows from '../../views/TVShows'
 import Movies from '../../views/Movies'
-import Movie from '../../views/Movie'
 import NotFound from '../../views/NotFound'
 
 const Router = ({history}) => (

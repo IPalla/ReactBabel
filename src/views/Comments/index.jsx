@@ -1,11 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import _ from 'lodash'
-
-import Movie from '../../components/Movie'
-
 import * as commentsActions from '../../actions/commentsActions'
 
 class Comments extends React.Component {
@@ -52,12 +47,12 @@ class Comments extends React.Component {
     updateComment = (e, id=0, user='', movieId='') => {
         const { commentsActions } = this.props;
         const { contentUpdate, update, path } = this.state;
-        if (id == -1) {
+        if (id === -1) {
             const commentContent = e.target.value;
             this.setState({contentUpdate: commentContent});
             return;
         }
-        if (id == -2){
+        if (id === -2){
             commentsActions.updateComment(update, contentUpdate, user, movieId, path);
             this.setState({update: 0});
             this.setState({contentUpdate: ''});
@@ -82,7 +77,7 @@ class Comments extends React.Component {
     }
 
     render() {
-        const { defaultId, comments, update, contentUpdate } = this.state;
+        const { comments, update } = this.state;
         return (
             <section className="container main movies">
                 <header className="row">
